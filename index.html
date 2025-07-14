@@ -2,116 +2,254 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KS Portfolio</title>
   <link rel="icon" type="image/png" href="Frame_21.png" />
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Fredoka', sans-serif;
+      background: #0e0e0e;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background: #121212;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .logo span {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    nav a {
+      margin-left: 2rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 2px;
+      background: #8e5eff;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .hero {
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #ccc;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #1b1b1b;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.2rem;
+    }
+
+    .card-content h3 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+
+    .card-content p {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #bbb;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 1rem;
+      border: none;
+      border-radius: 10px;
+      background: #1f1f1f;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      padding: 1rem;
+      background: #8e5eff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background: #a27eff;
+    }
+
+    footer {
+      background: #111;
+      padding: 2rem;
+      text-align: center;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="logo">
-      <img src="Frame_21.png" alt="KS Logo" />
+      <img src="Frame_21.png" alt="KS Logo">
       <span>KS Portfolio</span>
     </div>
     <nav>
       <a href="#">Home</a>
-      <a href="#portfolio">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#about">About Me</a>
-      <a class="contact-btn" href="#contact">Hire Me</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h1>KS Studios Portfolio</h1>
-    <p>Games I've made, helped create, or worked on as a developer.</p>
+    <h1>Hi, I'm KS</h1>
+    <p>I build high-quality Roblox games. Explore my work and let's make something great together.</p>
   </section>
 
-  <section id="portfolio" class="games-section">
-    <h2>My Projects</h2>
-    <div class="games-container"></div>
+  <section id="projects" class="section">
+    <h2>Projects I've Worked On</h2>
+    <div class="grid" id="projectGrid"></div>
   </section>
 
-  <section id="skills" class="about">
-    <h2>Skills</h2>
-    <p>I specialize in scripting, UI design, systems development, and bringing game concepts to life on Roblox. I’ve contributed to games with thousands of players and enjoy building things people love to play.</p>
-  </section>
-
-  <section id="about" class="about">
+  <section id="about" class="section">
     <h2>About Me</h2>
-    <p>I'm a Roblox developer focused on creating fun, polished, and innovative experiences. Whether it's solo development or collaboration, I put quality and performance first. This site showcases the work I’m most proud of.</p>
+    <p style="text-align:center; max-width: 800px; margin: auto; color: #ccc; font-size: 1.1rem;">I'm a Roblox developer focused on scripting, UI design, and full system creation. Whether you're building an original game or polishing a live project, I bring creative and technical skills to deliver results.</p>
   </section>
 
-  <section id="contact" class="contact-section">
-    <h2>Hire Me</h2>
+  <section id="contact" class="section">
+    <h2>Get in Touch</h2>
     <form id="contactForm" class="contact-form">
-      <input type="text" id="name" placeholder="Your Name" required />
-      <input type="email" id="email" placeholder="Your Email" required />
-      <input type="text" id="roblox" placeholder="Your Roblox Username" required />
-      <textarea id="message" rows="5" placeholder="Why you want to hire me" required></textarea>
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <input type="text" id="roblox" placeholder="Your Roblox Username" required>
+      <textarea id="message" rows="5" placeholder="Why you'd like to work with me" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </section>
 
   <footer>
-    <p>© 2025 KS Portfolio. Built with passion by K.S Studios.</p>
+    <p>© 2025 KS Portfolio. All rights reserved.</p>
   </footer>
 
   <script>
     fetch('games.json')
       .then(res => res.json())
       .then(data => {
-        const container = document.querySelector('.games-container');
+        const grid = document.getElementById('projectGrid');
         data.forEach(game => {
-          const el = document.createElement('div');
-          el.className = 'game-card';
-
-          const link = document.createElement('a');
-          link.href = game.url;
-          link.target = '_blank';
-          link.className = 'game-card-link';
-
-          const img = document.createElement('img');
-          img.src = game.thumbnail;
-          img.alt = game.name;
-
-          const info = document.createElement('div');
-          info.className = 'game-info';
-          info.innerHTML = 
-            `<h3>${game.name}</h3>
-            <p>${game.creator}</p>
-            <p><strong>${game.players}</strong> playing · ${game.visits} visits</p>`;
-
-          const hoverDiv = document.createElement('div');
-          hoverDiv.className = 'game-card-hover';
-          hoverDiv.textContent = 'View Game';
-          hoverDiv.addEventListener('click', () => {
-            window.open(game.url, '_blank');
-          });
-
-          link.appendChild(img);
-          link.appendChild(info);
-          el.appendChild(link);
-          el.appendChild(hoverDiv);
-          container.appendChild(el);
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <a href="${game.url}" target="_blank">
+              <img src="${game.thumbnail}" alt="${game.name}">
+              <div class="card-content">
+                <h3>${game.name}</h3>
+                <p>${game.creator}</p>
+                <p><strong>${game.players}</strong> playing · ${game.visits} visits</p>
+              </div>
+            </a>`;
+          grid.appendChild(card);
         });
       });
 
     document.getElementById('contactForm').addEventListener('submit', function (e) {
       e.preventDefault();
-
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       const roblox = document.getElementById('roblox').value.trim();
       const message = document.getElementById('message').value.trim();
-
       if (!name || !email || !roblox || !message) return;
-
       const content = {
         content: `**New Hire Request**\n\n**Name:** ${name}\n**Email:** ${email}\n**Roblox Username:** ${roblox}\n**Message:** ${message}`
       };
-
       fetch('https://discord.com/api/webhooks/1368746351541616760/o_IwCrO2t69m-mEjx8LVxciAkZMjrnM2gfCx2wRFcMpzrX9AcOB6XQHC756svKOBJkgF', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

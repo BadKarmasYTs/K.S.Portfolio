@@ -1,4 +1,3 @@
-<!-- START OF index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,74 +16,31 @@
     </div>
     <nav>
       <a href="#">Home</a>
-      <a href="#games">Games</a>
+      <a href="#portfolio">Projects</a>
+      <a href="#skills">Skills</a>
       <a href="#about">About Me</a>
-      <a href="#devs">Skills</a>
       <a class="contact-btn" href="#contact">Hire Me</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h1>Hey, I'm the dev behind KS Studios</h1>
-    <p>Here's a look at the games I've created or contributed to. Let's work together.</p>
-    <div class="stats">
-      <div class="stat">
-        <h2 id="totalPlayers">0</h2>
-        <span>Total Active Players</span>
-      </div>
-      <div class="stat">
-        <h2 id="totalVisits">0</h2>
-        <span>Total Game Visits</span>
-      </div>
-    </div>
+    <h1>KS Studios Portfolio</h1>
+    <p>Games I've made, helped create, or worked on as a developer.</p>
   </section>
 
-  <section id="games" class="games-section">
-    <h2>Projects I've Worked On</h2>
+  <section id="portfolio" class="games-section">
+    <h2>My Projects</h2>
     <div class="games-container"></div>
+  </section>
+
+  <section id="skills" class="about">
+    <h2>Skills</h2>
+    <p>I specialize in scripting, UI design, systems development, and bringing game concepts to life on Roblox. I’ve contributed to games with thousands of players and enjoy building things people love to play.</p>
   </section>
 
   <section id="about" class="about">
     <h2>About Me</h2>
-    <p>I’m a passionate Roblox game developer and scripter who’s worked on games with hundreds of thousands of plays. I specialize in building creative systems, gameplay mechanics, and UI/UX that keeps players coming back. Whether solo or team-based, I deliver polished, high-performing experiences.</p>
-  </section>
-
-  <section id="devs" class="devs-section">
-    <h2>What I Do</h2>
-    <div class="devs-container">
-      <div class="dev-card">
-        <img src="https://i.postimg.cc/xjJsGp02/channels4-profile.jpg" alt="Dev">
-        <h3>Game Scripting</h3>
-        <p>From core mechanics to advanced systems, I write scalable and performant Lua code.</p>
-      </div>
-
-      <div class="dev-card">
-        <img src="https://i.postimg.cc/PJQvzkJy/Pumkinimage.jpg" alt="Dev">
-        <h3>UI/UX Design</h3>
-        <p>I build polished, animated UIs that match the vibe of each game and platform.</p>
-      </div>
-
-      <div class="dev-card">
-        <img src="https://i.postimg.cc/5y6D8fsd/487ed785aa439096ba0f87839fdc33c4.webp" alt="Dev">
-        <h3>Team Collaboration</h3>
-        <p>I've worked with builders, animators, and designers to bring full games to life.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="community-links">
-    <h2>Follow My Work</h2>
-    <p>Check out my latest updates, videos, and communities.</p>
-    <div class="community-buttons">
-      <a href="https://discord.gg/C5Gep5zBre" target="_blank" class="community-btn discord">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord">
-        <span>My Discord</span>
-      </a>
-      <a href="https://www.roblox.com/users/19501845/profile" target="_blank" class="community-btn roblox">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/roblox.svg" alt="Roblox">
-        <span>My Roblox Profile</span>
-      </a>
-    </div>
+    <p>I'm a Roblox developer focused on creating fun, polished, and innovative experiences. Whether it's solo development or collaboration, I put quality and performance first. This site showcases the work I’m most proud of.</p>
   </section>
 
   <section id="contact" class="contact-section">
@@ -93,13 +49,13 @@
       <input type="text" id="name" placeholder="Your Name" required />
       <input type="email" id="email" placeholder="Your Email" required />
       <input type="text" id="roblox" placeholder="Your Roblox Username" required />
-      <textarea id="message" rows="5" placeholder="Why do you want to work together?" required></textarea>
+      <textarea id="message" rows="5" placeholder="Why you want to hire me" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </section>
 
   <footer>
-    <p>© 2025 KS Portfolio. Built with passion and Lua.</p>
+    <p>© 2025 KS Portfolio. Built with passion by K.S Studios.</p>
   </footer>
 
   <script>
@@ -107,9 +63,6 @@
       .then(res => res.json())
       .then(data => {
         const container = document.querySelector('.games-container');
-        let totalPlayers = 0;
-        let totalVisits = 0;
-
         data.forEach(game => {
           const el = document.createElement('div');
           el.className = 'game-card';
@@ -132,7 +85,7 @@
 
           const hoverDiv = document.createElement('div');
           hoverDiv.className = 'game-card-hover';
-          hoverDiv.textContent = 'Play Game';
+          hoverDiv.textContent = 'View Game';
           hoverDiv.addEventListener('click', () => {
             window.open(game.url, '_blank');
           });
@@ -142,13 +95,7 @@
           el.appendChild(link);
           el.appendChild(hoverDiv);
           container.appendChild(el);
-
-          totalPlayers += parseInt(game.players.replace(/[^0-9]/g, '')) || 0;
-          totalVisits += parseInt(game.visits.replace(/[^0-9]/g, '')) || 0;
         });
-
-        document.getElementById('totalPlayers').textContent = totalPlayers.toLocaleString();
-        document.getElementById('totalVisits').textContent = totalVisits.toLocaleString();
       });
 
     document.getElementById('contactForm').addEventListener('submit', function (e) {
@@ -162,7 +109,7 @@
       if (!name || !email || !roblox || !message) return;
 
       const content = {
-        content: `**Portfolio Contact**\n\n**Name:** ${name}\n**Email:** ${email}\n**Roblox Username:** ${roblox}\n**Message:** ${message}`
+        content: `**New Hire Request**\n\n**Name:** ${name}\n**Email:** ${email}\n**Roblox Username:** ${roblox}\n**Message:** ${message}`
       };
 
       fetch('https://discord.com/api/webhooks/1368746351541616760/o_IwCrO2t69m-mEjx8LVxciAkZMjrnM2gfCx2wRFcMpzrX9AcOB6XQHC756svKOBJkgF', {
@@ -183,4 +130,3 @@
   </script>
 </body>
 </html>
-<!-- END OF index.html -->

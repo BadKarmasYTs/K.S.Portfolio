@@ -1,0 +1,606 @@
+buttons when screen size is changed. {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  background: #0e0e0e; /* Dark background */
+  color: #fff;
+  font-family: 'Fredoka', sans-serif;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: #121212;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  z-index: 999;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.logo span {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+nav a {
+  margin-left: 30px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: #ffa500;
+}
+
+.contact-btn {
+  background: #8e5eff;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  color: white;
+  font-size: 1rem;
+  min-width: 120px; /* Minimum width to prevent shrinking */
+  max-width: 200px; /* Maximum width to prevent growing too large */
+  box-sizing: border-box; /* Ensure padding and borders are included in the width */
+  transition: background 0.3s, transform 0.2s;
+}
+
+.contact-btn:hover {
+  background: #a27eff;
+  transform: scale(1.05); /* Slight hover scaling */
+}
+
+
+.hero {
+  padding: 100px 20px 50px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #cfcfcf;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.stat {
+  background: #1a1a1a;
+  padding: 20px 30px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  min-width: 180px;
+  flex-grow: 1;
+  max-width: 300px;
+}
+
+.stat h2 {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #8e5eff;
+}
+
+.stat span {
+  font-size: 1rem;
+  margin-top: 6px;
+  display: block;
+  color: #ccc;
+}
+
+.games-section {
+  padding: 60px 30px;
+  text-align: center;
+}
+
+.games-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.games-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.game-card {
+  position: relative;
+  background: #1b1b1b;
+  border-radius: 18px;
+  overflow: hidden;
+  width: 320px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s ease;
+}
+
+.game-card:hover {
+  transform: scale(1.04);
+}
+
+.game-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.game-info {
+  padding: 16px;
+}
+
+.game-info h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.game-info p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  color: #bbb;
+}
+
+.game-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.game-card-hover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: none;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.game-card:hover .game-card-hover {
+  display: block;
+}
+
+.about {
+  background: rgba(30, 30, 40, 0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px;
+  margin: 50px auto;
+  max-width: 900px;
+  box-shadow: 0 0 30px rgba(140, 120, 255, 0.15);
+  transform: translateY(30px) scale(0.97);
+  animation: popInAbout 1s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes popInAbout {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.about h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.about p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ccc;
+}
+
+
+footer {
+  padding: 20px;
+  background: #111;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #aaa;
+}
+
+.contact-section {
+  padding: 60px 30px;
+  text-align: center;
+  background: #121212;
+}
+
+.contact-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #1f1f1f;
+  color: white;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  padding: 12px;
+  background: #8e5eff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #a27eff;
+}
+
+/* Meet the Devs Section */
+.meet-the-devs {
+  padding: 60px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.meet-the-devs h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+.meet-the-devs p {
+  font-size: 1.1rem;
+  color: #bbb;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.devs-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.dev-card {
+  background: #1b1b1b;
+  border-radius: 18px;
+  overflow: hidden;
+  width: 250px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.25s ease;
+}
+
+.dev-card:hover {
+  transform: scale(1.04);
+}
+
+.dev-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.dev-card h3 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.dev-card p {
+  font-size: 1rem;
+  color: #bbb;
+}
+
+/* General styles for text layout fixes */
+body {
+  font-family: 'Fredoka', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0e0e0e; /* Correct dark background */
+  color: #fff;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+section {
+  padding: 50px 20px;
+}
+
+.hero, .stats, .devs-section {
+  text-align: center;
+}
+
+.devs-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.devs-card {
+  background: #1a1a1a;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dev-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+
+
+.devs-card h3 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.devs-card p {
+  font-size: 1rem;
+  color: #bbb;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #111;
+  color: #fff;
+}
+.socials {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.socials a img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.2s ease;
+}
+
+.socials a:hover img {
+  transform: scale(1.2);
+  filter: brightness(0) invert(0.7);
+}
+.community-links {
+  background: #131313;
+  padding: 60px 30px;
+  text-align: center;
+}
+
+.community-links h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.community-links p {
+  font-size: 1.1rem;
+  color: #cfcfcf;
+  margin-bottom: 30px;
+}
+
+.community-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.community-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #1e1e1e;
+  color: white;
+  text-decoration: none;
+  padding: 14px 22px;
+  border-radius: 14px;
+  font-weight: 600;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.community-btn img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+}
+
+.community-btn:hover {
+  transform: scale(1.05);
+  background: #2b2b2b;
+}
+
+.community-btn.discord:hover {
+  background: #5865F2;
+}
+
+.community-btn.roblox:hover {
+  background: #c4c4c4;
+  color: #000;
+}
+/* Smooth Fade-in on Page Load */
+body {
+  opacity: 0;
+  animation: fadeInBody 1.2s ease forwards;
+}
+
+@keyframes fadeInBody {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Header Slide Down */
+header {
+  transform: translateY(-100%);
+  animation: slideDownHeader 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes slideDownHeader {
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Section Fade + Scale */
+section,
+.games-section,
+.about,
+.contact-section,
+.meet-the-devs,
+.community-links {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  animation: sectionEnter 1s ease forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes sectionEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Dev Cards Hover */
+.dev-card,
+.game-card,
+.devs-card,
+.community-btn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dev-card:hover,
+.game-card:hover,
+.devs-card:hover,
+.community-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Button Press Animations */
+.contact-form button,
+.community-btn {
+  transition: transform 0.15s ease;
+}
+
+.contact-form button:active,
+.community-btn:active {
+  transform: scale(0.95);
+}
+
+/* Nav Links */
+nav a {
+  position: relative;
+  overflow: hidden;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #8e5eff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Game Card Hover Reveal Smoother */
+.game-card-hover {
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.game-card:hover .game-card-hover {
+  opacity: 1;
+}
+
+/* Social Icons Hover Pop */
+.socials a img {
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
